@@ -1,7 +1,3 @@
-## list packages that shall be automatically loaded
-using DataFrames
-using Dates
-
 module TimeData
 
 ## list packages whos namespace is used
@@ -121,7 +117,7 @@ include("convert.jl")
 include("utils.jl")
 
 function loadPlotting()
-    include(joinpath(Pkg.dir("TimeData"), "src/plotting.jl"))
+    include(joinpath(dirname(@__FILE__), "plotting.jl"))
 end    
 
 end

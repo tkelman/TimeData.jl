@@ -31,7 +31,7 @@ for t in tests
     println(" * $(t)")
     println("----------------------")
     println("")
-    include(string(Pkg.dir("TimeData"), "/test/", t))
+    include(joinpath(dirname(@__FILE__), t))
 end
 
 end

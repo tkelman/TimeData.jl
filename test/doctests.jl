@@ -10,7 +10,7 @@ println("\n Running documentation tests\n")
 using TimeData
 using Dates
 
-fileName = joinpath(Pkg.dir("TimeData"), "data/logRet.csv")
+fileName = joinpath(dirname(@__FILE__), "..", "data/logRet.csv")
 tm = TimeData.readTimedata(fileName)[1:10, 1:4]
 
 tm[Date(2012, 1, 4):Date(2012, 1, 10), 1:2]
@@ -79,7 +79,7 @@ get(tm, 1, 1)
 kk = get(tm)
 isa(kk, Array{Any})
 
-filePath = joinpath(Pkg.dir("TimeData"), "data", "logRet.csv");
+filePath = joinpath(dirname(@__FILE__), "..", "data", "logRet.csv");
 tm = readTimedata(filePath)
 tm[1:5, 1:4]
 
@@ -96,7 +96,7 @@ tm[1:3, 1:3] .> 0.5
 exp(tm[1:3, 1:3])
 round(tm[1:3, 1:3], 2)
 
-filePath = joinpath(Pkg.dir("TimeData"), "data", "logRet.csv");
+filePath = joinpath(dirname(@__FILE__), "..", "data", "logRet.csv");
 tm = readTimedata(filePath)
 
 

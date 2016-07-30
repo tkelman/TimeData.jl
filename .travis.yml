@@ -1,17 +1,15 @@
-language: cpp
-compiler:
-  - clang
+language: julia
+julia:
+  - 0.3
+  - 0.4
+  - 0.5
+  - nightly
 notifications:
   email: false
-before_install:
-  - sudo add-apt-repository ppa:staticfloat/julia-deps -y
-  - sudo add-apt-repository ppa:staticfloat/juliareleases -y
-  - sudo apt-get update -qq -y
-  - sudo apt-get install libpcre3-dev julia -y
 script:
   - julia -e 'versioninfo()'
   - julia -e 'Pkg.clone("https://github.com/JuliaFinMetriX/JFinM_Charts.git")'
-  - julia -e 'Pkg.init(); Pkg.add("TimeData")'
+  - julia -e 'Pkg.init(); Pkg.clone(pwd())'
   - echo "Testing latest release:"
   - julia -e 'Pkg.test("TimeData")'
   - julia -e 'Pkg.checkout("TimeData")'

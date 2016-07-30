@@ -9,7 +9,7 @@ using TimeData
 
 println("Running IO function tests")
 
-dirPath = Pkg.dir("TimeData")
+dirPath = joinpath(dirname(@__FILE__), "..")
 filePath = joinpath(dirPath, "data", "logRet.csv")
 td = readTimedata(filePath)
 
